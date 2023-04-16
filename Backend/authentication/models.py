@@ -1,3 +1,3 @@
 from django.db import models
 
-# Create your models here.
+#not needed as there is an existing User class in django
