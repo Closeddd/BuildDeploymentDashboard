@@ -1,3 +1,3 @@
 from django.db import models
+from django.contrib.auth.models import BaseUserManager,AbstractBaseUser
 
-#not needed as there is an existing User class in django
