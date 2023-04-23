@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from django.http import JsonResponse
 from django.http import HttpResponseRedirect
 
+
 # Register view
 def register(request):
     if request.method == 'POST':
@@ -22,16 +23,16 @@ def register(request):
         user.save()
 
         return HttpResponseRedirect('login/')
-    
-    
+
     return JsonResponse({'status': 'error', 'message': 'Invalid request method.'})
+
 
 # Login view
 def login_view(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
-        
+
         try:
             # Get user by username
             user = User.objects.get(username=username)
@@ -47,5 +48,5 @@ def login_view(request):
             # If authentication fails, return an error message
             return JsonResponse({'status': 'error', 'message': 'Invalid username or password.'})
             # Render the login page with an error message
-    
+
     return JsonResponse({'status': 'error', 'message': 'Invalid request method.'})
