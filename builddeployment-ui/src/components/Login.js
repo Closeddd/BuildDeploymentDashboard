@@ -6,7 +6,7 @@ async function loginUser(credentials) {
     // send username, password to backend API to check if they exist.
     console.log(credentials)
 
-    return fetch('http://localhost:8080/login', {
+    return fetch('http://localhost:8000/register/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
