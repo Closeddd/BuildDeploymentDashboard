@@ -1,4 +1,5 @@
 import bcrypt
+import json
 from django.contrib.auth import login
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
@@ -11,9 +12,10 @@ from django.http import HttpResponseRedirect
 def register(request):
     if request.method == 'POST':
         # Get user data from the form
-        username = request.POST['username']
-        password = request.POST['password']
-        email = request.POST['email']
+        input = json.loads(request.body)
+        username = input['username']
+        password = input['password']
+        email = input['email']
 
         # Hash password using bcrypt
         hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
@@ -30,8 +32,9 @@ def register(request):
 # Login view
 def login_view(request):
     if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
+        input = json.loads(request.body)
+        username = input['username']
+        password = input['password']
 
         try:
             # Get user by username
