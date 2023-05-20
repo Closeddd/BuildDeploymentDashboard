@@ -26,7 +26,7 @@ def register(request):
         user = User(username=username, password=hashed_password, email=email)
         user.save()
 
-        return HttpResponseRedirect('login/')
+        return JsonResponse({'status': 'success', 'message': 'You have successfully registered!'})
 
     return JsonResponse({'status': 'error', 'message': 'Invalid request method.'})
 
