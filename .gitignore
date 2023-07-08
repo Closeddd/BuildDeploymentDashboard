@@ -4,3 +4,5 @@ venv/
 .idea/
 .vscode/
 authentication/migrations
+authentication/__pycache__/
+api_gateway/__pycache__/
