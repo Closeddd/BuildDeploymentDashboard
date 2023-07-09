@@ -60,11 +60,12 @@ def login_service(request):
         # Get user by username
         user = User.objects.get(username=username)
         if user is not None and bcrypt.checkpw(password.encode('utf-8'), user.password.encode('utf-8')):
-            login(request,user)
+            login(request, user)
             return True, 'Logged in successfully!'
 
     except User.DoesNotExist:
-        return False,'Invalid username/password'
+        return False, 'Invalid username/password'
+
 
 def logout_service(request):
     try:
