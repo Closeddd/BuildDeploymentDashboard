@@ -1,6 +1,5 @@
 # created by virtualenv automatically
 venv/
-.dockerignore
 .idea/
 .vscode/
 authentication/migrations
