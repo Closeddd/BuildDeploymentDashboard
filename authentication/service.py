@@ -64,8 +64,7 @@ def login_service(request):
             return True, 'Logged in successfully!'
 
     except User.DoesNotExist:
-        return False, 'Invalid username'
-
+        return False,'Invalid username/password'
 
 def logout_service(request):
     try:
