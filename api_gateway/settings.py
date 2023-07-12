@@ -42,7 +42,10 @@ INSTALLED_APPS = [
 
     # authentication app
     'authentication',
-    'corsheaders'
+    'corsheaders',
+    
+    # pm app
+    'project_management'
 ]
 
 MIDDLEWARE = [
