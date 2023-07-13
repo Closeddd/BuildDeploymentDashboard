@@ -12,21 +12,27 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 
 # Register view
 def register(request):
-    if request.method == 'POST':
-        # Get user data from the form
-        form = json.loads(request.body)
-        username = form['username']
-        password = form['password']
-        email = form['email']
+    try:
+        if request.method == 'POST':
+            # Get user data from the form
+            form = json.loads(request.body)
+            username = form['username']
+            password = form['password']
+            email = form['email']
 
-        # Hash password using bcrypt
-        hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
+            # Hash password using bcrypt
+            hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
 
-        # Create user object
-        user = User(username=username, password=hashed_password, email=email)
-        user.save()
+            # Create user object
+            user = User(username=username, password=hashed_password, email=email)
+            user.save()
 
-        return HttpResponseRedirect('login/')
+            # return HttpResponseRedirect('login/')
+            return JsonResponse({'status': 'Success', 'message': 'test'})
+    except Exception as e:
+        print(e)
+        return JsonResponse({'status': 'Failed', 'message': 'Error'})
+
 
     return JsonResponse({'status': 'error', 'message': 'Invalid request method.'})
 
