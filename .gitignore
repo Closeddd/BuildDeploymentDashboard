@@ -5,3 +5,5 @@ venv/
 authentication/migrations
 authentication/__pycache__/
 api_gateway/__pycache__/
+project_management/__pycache__/
+project_management/migrations

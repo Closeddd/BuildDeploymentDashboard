@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 
 class Project(models.Model):
-    name = models.CharField(max_length=255)
+    project_name = models.CharField(max_length=255)
     members = models.ManyToManyField(User)
 
     class Meta:
